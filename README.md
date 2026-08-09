@@ -30,7 +30,8 @@ https://raw.githubusercontent.com/254057007-eng/shadowrocket-rules/main/shadowro
 - 保留 TikTok UA 前置，避免与抖音/字节共享域名产生错误命中。
 - Emby Cloudflare 与直连线路精确分流。
 - `💼 公司内容` 默认直连；在公司网络受拦时可手动切换到 `🌐 代理访问`。
-- 依赖 Blackmatrix7 的远程规则集；GitHub Raw 在部分网络可能超时属于上游连通性问题。
+- **不内置广告拦截**：未包含广告策略组、`REJECT` 规则或 AdvertisingLite 远程规则；广告由用户在 Shadowrocket 模块中独立维护。
+- 依赖 Blackmatrix7 的业务分流远程规则集；GitHub Raw 在部分网络可能超时属于上游连通性问题。
 
 ## 三条独立维护路线
 
