@@ -22,7 +22,7 @@ https://raw.githubusercontent.com/254057007-eng/shadowrocket-rules/main/shadowro
 
 - `shadowrocket.conf` 的 `update-url` 指向 jsDelivr；后续在客户端更新该远程配置即可同步规则。
 - 节点订阅须在 Shadowrocket 中独立保留/更新。该规则文件没有 `[Proxy]` 节点段；策略组用动态正则筛选客户端已有节点。
-- 更新后先检查：地区策略组是否有节点、`🚀 策略选择` 是否可用，再进行日常连接。
+- 更新后先检查：地区策略组是否有节点、`🚀 策略选择`/`🐟 漏网之鱼` 是否可用，再进行日常连接。
 
 ## 规则特点
 
@@ -33,11 +33,10 @@ https://raw.githubusercontent.com/254057007-eng/shadowrocket-rules/main/shadowro
 - **不内置广告拦截**：未包含广告策略组、`REJECT` 规则或 AdvertisingLite 远程规则；广告由用户在 Shadowrocket 模块中独立维护。
 - 依赖 Blackmatrix7 的业务分流远程规则集；GitHub Raw 在部分网络可能超时属于上游连通性问题。
 
-## 三条独立维护路线
+## 独立维护路线
 
 1. **Shadowrocket 规则**：本仓库。
 2. **Clash Mi JS / Mihomo 规则**：独立仓库与独立验证，节点独立导入。
-3. **利群对齐版 YAML**：大众模板路线，独立于上述个人规则路线。
 
 不得将节点订阅、账户凭据或个人密钥提交到任何规则仓库。
 
