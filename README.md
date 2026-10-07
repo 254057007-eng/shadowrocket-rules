@@ -29,7 +29,8 @@ https://raw.githubusercontent.com/254057007-eng/shadowrocket-rules/main/shadowro
 - 国内直连、漏网代理优先；AI、视频/流媒体、Telegram、Google/GitHub 等独立分流。
 - 保留 TikTok UA 前置，避免与抖音/字节共享域名产生错误命中。
 - Emby Cloudflare 与直连线路精确分流。
-- `💼 公司内容` 默认直连；在公司网络受拦时可手动切换到 `🌐 代理访问`。
+- `💼 公司内容` 默认直连；在公司网络受拦时可手动切换到 `🌐 代理访问`，覆盖 Bilibili 完整规则及常用网易/阿里邮箱端点。
+- Microsoft / GitHub Copilot 仅匹配专属服务端点，避免共享基础域误分到 AI；Google / GitHub 显式使用远程 DNS。
 - **不内置广告拦截**：未包含广告策略组、`REJECT` 规则或 AdvertisingLite 远程规则；广告由用户在 Shadowrocket 模块中独立维护。
 - 依赖 Blackmatrix7 的业务分流远程规则集；GitHub Raw 在部分网络可能超时属于上游连通性问题。
 
@@ -40,12 +41,11 @@ https://raw.githubusercontent.com/254057007-eng/shadowrocket-rules/main/shadowro
 
 不得将节点订阅、账户凭据或个人密钥提交到任何规则仓库。
 
-## 发布前静态验证
+## 当前线上基线（V3.3）
 
-本次首次发布版本基于本地 V3 测试规则生成，仅新增 `update-url`：
-
-- SHA-256：`ea769266ba40b4fa7fa508319d497357e081d8655ca59e29e35ab2fde67a96ed`
+- SHA-256：`ab75f3f9deb745f6374ae24cf517df5f470df62084144340eb0b7cfc2dd8adca`
 - 结构：`[General]`、`[Proxy Group]`、`[Rule]`
-- 第三方远程规则依赖：20 条
+- 规模：25 个策略组、150 条本地规则
+- 第三方远程规则依赖：18 条
 
-发布不替代客户端实机验证。
+发布后仍需在 Shadowrocket 中手动更新远程配置并重连验证。
