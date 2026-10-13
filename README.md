@@ -28,7 +28,8 @@ https://raw.githubusercontent.com/254057007-eng/shadowrocket-rules/main/shadowro
 
 - 国内直连、漏网代理优先；AI、视频/流媒体、Telegram、Google/GitHub 等独立分流。
 - 保留 TikTok UA 前置，避免与抖音/字节共享域名产生错误命中。
-- Emby Cloudflare 与直连线路精确分流。
+- Emby Cloudflare 与直连线路精确分流：新增 `a.mobaiemby.site:80` 的 `DOMAIN + DST-PORT` 直连例外，优先于同域代理规则；`a.mobaiemby.site:443` 与 `m.20269909.xyz:443` 仍进入 `🎞️ Emby CF`，其余所列域名/IP维持直连。
+- 只用 Emby 直连线路时，播放器应选择对应 HTTP 地址。CF 策略组应保持选中代理策略而非 `DIRECT`；规则不负责自动切换线路。`DIRECT` 指不经过本机代理，不能保证服务端链路完全不经过 Cloudflare。
 - `💼 公司内容` 默认直连；在公司网络受拦时可手动切换到 `🌐 代理访问`，覆盖 Bilibili 完整规则及常用网易/阿里邮箱端点。
 - Microsoft / GitHub Copilot 仅匹配专属服务端点，避免共享基础域误分到 AI；Google / GitHub 显式使用远程 DNS。
 - **不内置广告拦截**：未包含广告策略组、`REJECT` 规则或 AdvertisingLite 远程规则；广告由用户在 Shadowrocket 模块中独立维护。
@@ -41,11 +42,12 @@ https://raw.githubusercontent.com/254057007-eng/shadowrocket-rules/main/shadowro
 
 不得将节点订阅、账户凭据或个人密钥提交到任何规则仓库。
 
-## 当前线上基线（V3.3）
+## 当前线上基线（V3.4）
 
-- SHA-256：`ab75f3f9deb745f6374ae24cf517df5f470df62084144340eb0b7cfc2dd8adca`
+- SHA-256：`bad1abcdc545bf53ea8ec06bbdbb7e4d881917615badf333f94b1a38828fecd1`
 - 结构：`[General]`、`[Proxy Group]`、`[Rule]`
-- 规模：25 个策略组、150 条本地规则
+- 规模：25 个策略组、151 条本地规则
 - 第三方远程规则依赖：18 条
+- Emby：用户列出的 12 个地址已做域名/IP + 端口规则模拟核验（10 直连、2 CF 代理组）；此项不替代 Shadowrocket 实机播放/连接日志验证。
 
 发布后仍需在 Shadowrocket 中手动更新远程配置并重连验证。
